@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CharComponent from './CharComponent/CharComponent'
+import ValidationComponent from './ValidationComponent/ValidationComponent';
 
 class Assignment2 extends Component {
   state = {
@@ -35,6 +36,7 @@ class Assignment2 extends Component {
       <div>
         <input type='text' onChange={this.inputChange} value={this.state.input}/>
         <p>{this.state.input.length}</p>
+        <ValidationComponent text={this.state.input}></ValidationComponent>
         {displayedChars}
       </div>
     );
