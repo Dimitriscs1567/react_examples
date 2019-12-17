@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import Assignment1 from './Assignment1/Assignment1';
-import Assignment2 from './Assignment2/Assignment2';
-import Layout from './BurgerExample/components/Layout/Layout'
-import BurgerBuilder from './BurgerExample/containers/BurgerBuilder/BurgerBuilder'
+import { Route, Switch } from 'react-router-dom';
+
+import Layout from './BurgerExample/hoc/Layout/Layout';
+import BurgerBuilder from './BurgerExample/containers/BurgerBuilder/BurgerBuilder';
+import Checkout from './BurgerExample/containers/Checkout/Checkout';
+import Orders from './BurgerExample/containers/Orders/Orders';
 
 class App extends Component {
-
-  render() {
+  render () {
     return (
       <div>
         <Layout>
-          <BurgerBuilder></BurgerBuilder>
+          <Switch>
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/orders" component={Orders} />
+            <Route path="/" exact component={BurgerBuilder} />
+          </Switch>
         </Layout>
       </div>
     );
-  } 
+  }
 }
 
 export default App;
